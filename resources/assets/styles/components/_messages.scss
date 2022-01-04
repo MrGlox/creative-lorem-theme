@@ -1,0 +1,41 @@
+.message {
+	border-left: 5px solid $primary;
+	color: $primary;
+	padding: $sp;
+	margin: 0 0 $sp;
+
+	p {
+		&:last-child {
+			margin: 0;
+		}
+	}
+
+	a {
+		color: currentColor;
+	}
+
+	&--error,
+	&--alert {
+		color: $error--light;
+		background: $error;
+		border-color: $error--light;
+	}
+
+	&--notice {
+		color: $notice;
+		background: $notice--light;
+		border-color: $notice;
+	}
+
+	&--success {
+		color: $success--light;
+		background: $success;
+		border-color: $success--light;
+	}
+
+	&--info {
+		color: $info;
+		background: $info--light;
+		border-color: $info;
+	}
+}

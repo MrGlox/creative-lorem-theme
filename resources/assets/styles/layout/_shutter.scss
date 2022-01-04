@@ -1,0 +1,62 @@
+.shutter {
+  $el: &;
+
+  &--container {
+    position: fixed;
+    z-index: 99;
+    top: -20vh;
+    left: -30vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-width: 160vw;
+    min-height: 140vh;
+
+    background-color: $lightcolor;
+
+    @include breakpoints(md) {
+      top: -20vh;
+      left: -10vw;
+
+      min-width: 120vw;
+      min-height: 140vh;
+    }
+  }
+
+  &--hidden {
+    overflow: hidden;
+  }
+
+  #{$el}__move {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+  }
+
+  #{$el}__content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+
+    font-size: 40px;
+    color: $primary;
+
+    svg {
+      max-width: 400px;
+      max-height: 400px;
+    }
+  }
+
+  #{$el}__logo {
+    width: 140px;
+    height: 140px;
+  }
+}

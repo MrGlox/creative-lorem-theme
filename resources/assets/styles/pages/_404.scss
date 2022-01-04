@@ -1,0 +1,122 @@
+.error404 {
+  //   overflow: hidden;
+  background-color: $mediumgrey;
+
+  .wrap {
+    position: relative;
+    min-height: 100vh;
+    // overflow: hidden;
+    padding: 0;
+  }
+
+  .brand {
+    display: flex;
+    justify-content: center;
+
+    .brand__logo {
+      max-height: 60px;
+      width: 60px;
+    }
+
+    .brand__container {
+      overflow: visible !important;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0;
+    min-height: calc(100vh - 164px) !important;
+
+    @include breakpoints(sm) {
+      min-height: 100vh !important;
+    }
+
+    & > .container {
+      min-height: calc(100vh - 164px);
+
+      @include breakpoints(xsm) {
+        min-height: 100vh;
+        height: auto;
+      }
+    }
+
+    &__container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      min-height: calc(100vh - 164px);
+
+      @include breakpoints(xsm) {
+        min-height: 100vh;
+      }
+    }
+
+    &__artefacts {
+      @include img__responsive(110vw);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      min-height: 90vh;
+    }
+
+    &__title {
+      max-width: 530px;
+      text-align: center;
+      margin-bottom: $spl;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      &--inline {
+        @include breakpoints(xsm) {
+          flex-direction: row;
+          justify-content: center;
+        }
+      }
+    }
+
+    &__item {
+      margin: 0 gutter() / 2 $sps;
+    }
+
+    &__link {
+      @include button;
+      white-space: nowrap;
+      font-size: $fszs;
+      font-weight: 600;
+      padding: $spxs $sp;
+      text-align: center;
+      width: 100%;
+
+      @include breakpoints(xsm) {
+      }
+
+      &--second {
+        @include button--colored(
+          $secondary,
+          $lightcolor,
+          darken($secondary, 4%)
+        );
+      }
+    }
+
+    &__media {
+      width: 90vw;
+      max-width: 1024px;
+    }
+
+    &__img {
+      @include img__responsive;
+    }
+  }
+}

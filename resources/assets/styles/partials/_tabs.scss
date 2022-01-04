@@ -1,0 +1,302 @@
+.tabs {
+  $el: &;
+  $main: '.tabs';
+
+  & > .container {
+    display: flex;
+  }
+
+  #{$el}__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &:after {
+      @include pseudo__content;
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      width: 100vw;
+      height: 1px;
+      background-color: $lightcolor;
+      opacity: 0.11;
+      transform: translateX(-50%);
+    }
+  }
+
+  #{$el}__header {
+    justify-self: stretch;
+    margin-bottom: $sps;
+
+    @include breakpoints(md) {
+      margin-bottom: $spxxxl;
+    }
+  }
+
+  #{$el}__main {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: $sp;
+    margin-bottom: $sp;
+
+    @include breakpoints(md) {
+      margin-top: $spl;
+      margin-bottom: $spxxl;
+    }
+  }
+
+  #{$el}__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    &-container {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @include breakpoints(sm) {
+        flex-direction: row;
+        align-items: flex-end;
+        width: span(9);
+        padding-right: span(1);
+      }
+
+      @include breakpoints(md) {
+        width: span(6);
+      }
+    }
+
+    &-label {
+      font-weight: 900;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: $spxs;
+
+      @include breakpoints(sm) {
+        font-size: 16px;
+        text-align: right;
+        margin-bottom: 0;
+      }
+    }
+
+    &-button {
+      white-space: nowrap;
+
+      @include breakpoints(sm) {
+        margin-left: $spxs;
+      }
+    }
+  }
+
+  #{$el}__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  #{$el}__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+
+    @include breakpoints(md) {
+      flex-direction: row;
+      align-content: flex-end;
+      align-items: flex-end;
+    }
+
+    &:last-child {
+      #{$main}__title--sub {
+        margin-bottom: $spxs;
+      }
+    }
+  }
+
+  #{$el}__content {
+    display: none;
+
+    @include breakpoints(md) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: span(7);
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+
+  #{$el}__title {
+    @include heading__stroke(-12px);
+    font-size: 20px;
+    margin-bottom: 0;
+
+    @include breakpoints(sm) {
+      @include heading__stroke;
+      font-size: 44px;
+      margin-bottom: $spxs;
+    }
+
+    &--sub {
+      font-family: $headingsfont;
+      font-size: 16px;
+      margin-bottom: $sp;
+      text-transform: uppercase;
+      opacity: 0.43;
+      transition: opacity 0.3s ease, padding 0.3s ease;
+      transform-origin: center right;
+      cursor: pointer;
+
+      @include breakpoints(sm) {
+        font-size: 24px;
+        width: span(5);
+      }
+
+      &:after {
+        bottom: 0;
+        width: 8px;
+        height: 1px;
+        transform: translateY(-8px) scaleX(0);
+        transition: transform 0.3s ease;
+
+        @include breakpoints(sm) {
+          width: 13px;
+          height: 2px;
+          transform: translateY(-4px) translateX(4px) scaleX(0);
+        }
+      }
+    }
+
+    &--active,
+    &--sub:hover {
+      padding-left: 12px;
+      opacity: 1;
+
+      &:after {
+        transform: translateY(-8px) scaleX(1);
+
+        @include breakpoints(sm) {
+          transform: translateY(-4px) translateX(4px) scaleX(1);
+        }
+      }
+    }
+
+    &--lower {
+      font-size: 12px;
+      font-weight: 700;
+
+      &:first-line {
+        text-indent: 24px;
+      }
+
+      @include breakpoints(sm) {
+        padding-left: $spxs;
+        margin-bottom: $sps;
+      }
+
+      @include breakpoints(md) {
+        margin-bottom: $spl;
+        padding-left: 50px;
+        margin-top: $spxxs;
+        font-size: 16px;
+        font-weight: 900;
+
+        &:first-line {
+          text-indent: 0;
+        }
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  #{$el}__content {
+    &--active {
+      margin-bottom: $sp;
+
+      @include breakpoints(md) {
+        margin-bottom: 0;
+      }
+    }
+
+    .upper {
+      margin-bottom: $spxs;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    ul {
+      padding-left: $spxxs;
+      list-style-type: '-';
+      list-style-position: outside;
+
+      & > li {
+        padding-left: $spxxxs;
+      }
+    }
+  }
+
+  #{$el}__gradient {
+    @include pseudo__content;
+    position: absolute;
+    z-index: -1;
+    top: -30px;
+    left: 50%;
+    width: 110%;
+    height: 75vh;
+    transform: translateX(-70%);
+
+    @include breakpoints(sm) {
+      top: -35%;
+      left: 0;
+      transform: translateX(-30%);
+      width: span(4);
+    }
+  }
+
+  #{$el}__pattern {
+    position: absolute;
+    z-index: -1;
+    bottom: -2%;
+    right: initial;
+    left: -20%;
+    width: 160px;
+    height: 160px;
+    transform: translateX(5%);
+
+    @include breakpoints(sm) {
+      width: 340px;
+      height: 340px;
+      bottom: -5%;
+      right: 0;
+      left: initial;
+      transform: translateX(5%);
+    }
+
+    @include breakpoints(md) {
+      bottom: -20%;
+    }
+  }
+
+  #{$el}__circle {
+    position: absolute;
+    z-index: -1;
+    top: -10%;
+    left: 0;
+    width: 1040px;
+    height: 1040px;
+    transform: translateX(-15%);
+  }
+
+  #{$el}__button {
+    @include button;
+  }
+}

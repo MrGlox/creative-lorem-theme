@@ -1,0 +1,134 @@
+.newsletter {
+  $el: &;
+
+  position: relative;
+  z-index: 10;
+  left: 50%;
+  margin: 0 auto;
+  border-radius: $br;
+  background-color: $primary;
+  padding: $spxl span(1.2) $spl;
+  transform: translateX(-50%);
+
+  @include breakpoints(md) {
+    left: initial;
+    transform: initial;
+  }
+
+  h2 {
+    font-family: $mainfont;
+    text-align: center;
+    font-size: 30px;
+    line-height: 50px;
+    color: $lightcolor;
+  }
+
+  .textwidget {
+    padding: 0 $spxs;
+
+    & > p {
+      color: $lightcolor;
+      text-align: center;
+    }
+  }
+
+  #{$el}__container {
+    position: relative;
+    display: flex;
+    width: span(8.4 of 10);
+    margin: 0 auto $sps;
+  }
+
+  .hbspt-form {
+    position: relative;
+
+    & > form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+    }
+
+    .hs_email {
+      display: flex;
+      justify-content: stretch;
+      align-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: $sps;
+
+      @include breakpoints(sm) {
+        width: span(10);
+      }
+
+      & > label {
+        @extend .visuallyhidden;
+      }
+    }
+
+    .input {
+      width: 100%;
+    }
+
+    input {
+      width: 100%;
+      padding: $sps 140px $sps $sps;
+      border: none;
+      border-radius: $br;
+      background-color: $lightcolor;
+
+      &::placeholder {
+        color: $grey;
+      }
+    }
+
+    .hs_submit {
+      display: flex;
+      position: absolute;
+      top: $sp;
+      right: gutter(8);
+      transform: translateY(-50%);
+
+      @include breakpoints(sm) {
+        right: #{span(1) + gutter(10)};
+      }
+
+      & > div > input {
+        @include button;
+        @include button--colored(
+          darken($secondary, 3%),
+          $lightcolor,
+          darken($secondary, 5%)
+        );
+
+        padding: $spxxs $sps;
+        min-width: 100px;
+        font-size: $fszs;
+
+        @include hover {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .hs-error-msgs {
+      @extend .visuallyhidden;
+      //   margin-top: $spxxs;
+      margin-bottom: 0;
+
+      li {
+        color: $error;
+      }
+    }
+
+    .legal-consent-container {
+      text-align: center;
+      color: $lightcolor;
+      font-size: $fszxs;
+    }
+
+    .hs_recaptcha {
+      @extend .visuallyhidden;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.lines {
+  $el: &;
+
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
+
+  &:after {
+    @include pseudo__content;
+    position: fixed;
+    top: 50%;
+    left: 80vw;
+    width: 1px;
+    height: 100vh;
+    background-color: $lightcolor;
+    opacity: 0.11;
+    transform: translateY(-50%);
+  }
+
+  #{$el}__date {
+    display: none;
+    position: absolute;
+    top: 45vh;
+    left: $spxl;
+    color: $lightcolor;
+    font-family: $headingsfont;
+    font-size: $fszxxs;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    opacity: 0.5;
+    transform: translateY(-50%) rotate(-180deg);
+
+    @include breakpoints(md) {
+      display: flex;
+    }
+  }
+
+  #{$el}__doted {
+    position: absolute;
+    z-index: -1;
+    top: 45vh;
+    left: -$sp;
+    width: 320px;
+    height: 320px;
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  }
+
+  #{$el}__circle {
+    position: absolute;
+    z-index: -1;
+    top: 45vh;
+    left: 0;
+    width: 1040px;
+    height: 1040px;
+    transform: translateX(-50%) translateY(-50%);
+
+    &--larger {
+      min-width: 2580px;
+      height: 2580px;
+      width: 90vw;
+    }
+  }
+}

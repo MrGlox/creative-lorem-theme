@@ -1,0 +1,207 @@
+[data-seo] {
+  cursor: pointer;
+}
+
+// DEBUG
+pre {
+  color: $darkcolor;
+}
+
+// Picture handle & lazyload
+picture {
+  & > img,
+  & > source {
+    @include img__responsive;
+  }
+}
+
+img.lazy,
+.lazy img,
+.lazy source {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+body {
+  position: relative;
+  display: flex;
+  z-index: 1;
+  min-height: 100vh;
+  background-position: center;
+  background: linear-gradient(-46deg, #1b0141 0.01%, #4b1f61 100%), #4b1f61;
+  overscroll-behavior-y: none;
+  overflow: auto;
+
+  &.no-scroll {
+    overflow: hidden !important;
+  }
+
+  & canvas {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+}
+
+.wrapper {
+  position: fixed;
+  z-index: 2;
+  top: 24px;
+  left: 24px;
+  width: calc(100vw - 48px);
+  min-height: calc(100vh - 48px);
+
+  > main {
+    // position: relative;
+    // top: 24px;
+    // left: 24px;
+    z-index: 1;
+    min-height: calc(100vh - 48px);
+    background-position: top;
+    background-size: cover;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.section {
+  position: relative;
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  padding: $spl 0;
+
+  @include breakpoints(md) {
+    min-height: 80vh;
+    padding: $spxxl 0;
+  }
+
+  &--advantages {
+    @include breakpoints(md) {
+      min-height: 40vh;
+      padding: $spxxl 0;
+    }
+  }
+
+  &--hero,
+  &--intro,
+  &--skills,
+  &--partners {
+    padding: $spxxxxl 0 $sp;
+
+    @include breakpoints(md) {
+      min-height: 75vh;
+      padding: 160px 0 $spxxl;
+    }
+  }
+
+  &--intro {
+    padding: $spxxxxl 0 $sp;
+
+    @include breakpoints(md) {
+      min-height: 95vh;
+      padding: 160px 0 $spxxl;
+    }
+  }
+
+  &--offset {
+    @include breakpoints(md) {
+      padding: $spxxxxl 0 $spxl;
+    }
+  }
+
+  &--cards,
+  &--masonry {
+    min-height: 40vh;
+  }
+
+  &--contact {
+    overflow: hidden;
+
+    @include breakpoints(sm) {
+      min-height: 60vh;
+    }
+
+    @include breakpoints(md) {
+      padding: $spxl 0 0;
+      margin-bottom: $spxl;
+    }
+  }
+
+  &--quote {
+    position: relative;
+  }
+}
+
+.main {
+  .content {
+    width: 100%;
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    > .section--entry {
+      & + .section--entry {
+        min-height: 50vh;
+        margin-top: 0;
+
+        .entry__container {
+          display: flex;
+          flex-direction: column;
+
+          @include breakpoints(md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+
+        .entry__media {
+          @include breakpoints(md) {
+            position: static;
+            width: span(6);
+            transform: none;
+          }
+        }
+
+        .entry__content {
+          padding-top: 0;
+          padding-bottom: 0;
+          transform: none;
+
+          @include breakpoints(md) {
+            width: span(6);
+          }
+
+          &:after {
+            display: none;
+          }
+        }
+
+        &:nth-child(odd) {
+          .entry__container {
+            @include breakpoints(md) {
+              flex-direction: row-reverse;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.dg.ac {
+  z-index: 999 !important;
+}

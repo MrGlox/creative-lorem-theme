@@ -1,0 +1,140 @@
+.quote {
+  $el: &;
+
+  #{$el}__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoints(md) {
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      flex-direction: row-reverse;
+    }
+  }
+
+  #{$el}__title {
+    @include heading__stroke(-10px);
+    font-size: 20px;
+    margin-bottom: 0;
+
+    @include breakpoints(xsm) {
+      @include heading__stroke;
+      font-size: 44px;
+      margin-bottom: $spl;
+    }
+  }
+
+  #{$el}__content {
+    position: relative;
+    z-index: 1;
+
+    @include breakpoints(md) {
+      padding: $spxl 0 $spxl;
+      width: span(5) + gutter();
+      transform: translateY($spxl);
+    }
+
+    &:after {
+      @include pseudo__content;
+      position: absolute;
+      z-index: -1;
+      top: -$sp;
+      left: -$spxxxs;
+      width: 100%;
+      height: calc(100% + 75px);
+
+      border-radius: 8px;
+      transform: translateX(12px);
+      backdrop-filter: blur(27px);
+
+      @include breakpoints(md) {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  #{$el}__text {
+    padding-top: $sp;
+    margin-left: span(1) + gutter();
+    width: span(6 of 7);
+  }
+
+  #{$el}__main {
+    position: relative;
+    line-height: $hlh;
+    font-family: $headingsfont;
+    font-weight: 400;
+    color: $secondary--lighter;
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    margin-top: $spxxl;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoints(sm) {
+      font-size: 35px;
+      line-height: 42px;
+      width: span(9);
+      margin-top: 40px;
+      padding-top: 75px;
+    }
+
+    @include breakpoints(md) {
+      width: span(5);
+      padding-top: 90px;
+      margin-top: 0;
+    }
+  }
+
+  #{$el}__icon {
+    position: absolute;
+    height: 80px;
+    width: 130px;
+
+    @include breakpoints(md) {
+      height: 120px;
+      width: 170px;
+    }
+
+    &--left {
+      top: -10px;
+      left: -15px;
+
+      @include breakpoints(sm) {
+        top: 40px;
+        left: -55px;
+      }
+    }
+    &--right {
+      transform: scaleX(-1);
+      bottom: -10px;
+      right: -15px;
+
+      @include breakpoints(sm) {
+        bottom: -35px;
+        right: -55px;
+      }
+    }
+  }
+
+  #{$el}__gradient {
+    @include pseudo__content;
+    position: absolute;
+    z-index: -1;
+    top: -$sp;
+    left: 0;
+    width: span(4.5);
+    height: 50vh;
+
+    @include breakpoints(md) {
+      top: $spl;
+    }
+  }
+}

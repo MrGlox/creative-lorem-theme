@@ -1,0 +1,39 @@
+.gallery {
+	@include container;
+
+	margin: 0 0 $sp;
+
+	br + br {
+		display: none;
+	}
+
+	.gallery-caption {
+		font-size: 11px;
+		margin: $spxs 0 0;
+		text-align: left;
+	}
+}
+
+.gallery-item {
+	@include span(6 of 12);
+
+	text-align: center;
+	position: relative;
+	margin-bottom: $sp;
+
+	a {
+		display: block;
+
+		img {
+			display: block;
+		}
+	}
+
+	.gallery-columns-3 & {
+		@include span(4 of 12);
+	}
+
+	.gallery-columns-4 & {
+		@include span(3 of 12);
+	}
+}

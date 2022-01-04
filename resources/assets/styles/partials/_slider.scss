@@ -1,0 +1,465 @@
+.slider {
+  $el: &;
+  $main: '.slider';
+
+  & > .container {
+    &--larger {
+      @include breakpoints(sm) {
+        max-width: 660px;
+      }
+
+      @include breakpoints(md) {
+        max-width: 1280px;
+      }
+    }
+  }
+
+  #{$el}__content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    @include breakpoints(md) {
+      padding-top: $spxxl;
+    }
+
+    & > .container {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 0;
+    }
+  }
+
+  #{$el}__gradient {
+    @include pseudo__content;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    transform: translateX(45%) translateY($sp);
+
+    @include breakpoints(sm) {
+      transform: translateX(45%) translateY($spl);
+    }
+
+    @include breakpoints(md) {
+      transform: translateX(-50%) translateY(-$spxxl);
+    }
+  }
+
+  #{$el}__article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #{$el}__header {
+    position: absolute;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding-left: $sps;
+    transform: rotate(180deg);
+
+    @include breakpoints(md) {
+      position: static;
+      padding-left: $spxxl;
+    }
+  }
+
+  #{$el}__controls {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-start;
+    justify-content: space-evenly;
+    order: 3;
+    width: 100%;
+
+    @include breakpoints(md) {
+      justify-content: space-between;
+      margin-left: span(1);
+      width: span(4);
+      min-width: 260px;
+      margin-top: -310px;
+    }
+  }
+
+  #{$el}__main {
+    order: 1;
+    max-width: 600px;
+    width: calc(100% + 24px);
+    margin: -$spxxl -12px 0;
+
+    @include breakpoints(sm) {
+      align-self: flex-start;
+      width: span(8) + gutter();
+    }
+
+    @include breakpoints(md) {
+      align-self: initial;
+      position: absolute;
+      z-index: 2;
+      width: span(6) + gutter();
+      transform: translateX(-50%);
+      margin: 0 -12px;
+
+      &:after {
+        @include pseudo__content;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(30px);
+        border-radius: 8px;
+      }
+    }
+  }
+
+  #{$el}__aside {
+    position: relative;
+    left: 50%;
+    z-index: 1;
+    right: 0;
+    order: 0;
+    width: calc(#{span(7)} + 100px);
+    max-width: 700px;
+    min-height: 340px;
+    margin-top: -$sps;
+    transform: translateX(calc(-50% + 20px));
+
+    @include breakpoints(sm) {
+      left: 30%;
+      width: calc(#{span(4)} + 120px);
+      transform: translateX(calc(-50% + 45px));
+    }
+
+    @include breakpoints(md) {
+      left: 50%;
+      min-height: 870px;
+      width: 100%;
+      order: 2;
+      transform: translateX(calc(-50% + 60px));
+      margin-top: 0;
+    }
+
+    .glide__slide {
+      padding: $sps;
+
+      @include breakpoints(md) {
+        padding: $spxl;
+      }
+    }
+  }
+
+  #{$el}__title {
+    @include heading__stroke;
+    line-height: 22px;
+    font-size: 20px;
+    font-weight: 400;
+    color: $lightcolor;
+    font-family: $headingsfont;
+    text-transform: uppercase;
+
+    @include breakpoints(md) {
+      line-height: 44px;
+      font-size: 54px;
+    }
+
+    &--main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      white-space: nowrap;
+      margin-left: span(1) + gutter();
+      margin-bottom: 0;
+      transform: translateY(-100%);
+
+      @include breakpoints(md) {
+        position: static;
+        transform: translateY(75px);
+      }
+
+      &:after {
+        bottom: initial;
+        right: initial;
+        top: 0;
+        left: -10px;
+        transform: rotate(90deg) translateX(50%) translateY(100%);
+
+        @include breakpoints(md) {
+          left: -$sp;
+        }
+      }
+    }
+
+    &--index {
+      font-size: 54px;
+      margin-bottom: $sp;
+      transform: translateY(-100%);
+
+      @include breakpoints(md) {
+        margin-bottom: $spl;
+        transform: none;
+      }
+
+      &:after {
+        left: 3px;
+        bottom: -$sps;
+        transform: translateY(100%);
+        height: 5px;
+        width: 24px;
+
+        @include breakpoints(md) {
+          bottom: -$spxxs;
+        }
+      }
+    }
+
+    &--media {
+      font-size: 24px;
+      margin-bottom: $sps;
+
+      @include breakpoints(md) {
+        font-size: 34px;
+        margin-bottom: $sp;
+      }
+
+      &:after {
+        bottom: -22px;
+        width: 24px;
+        height: 5px;
+      }
+    }
+  }
+
+  #{$el}__list {
+    margin-bottom: 0;
+
+    &--content {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+
+      #{$el}__item {
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        padding: $spl 0 $sps;
+
+        @include breakpoints(md) {
+          padding: $spl $spxl $spl $sp;
+        }
+      }
+    }
+
+    &--media {
+      max-height: 870px;
+
+      #{$main}__item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        max-height: 750px;
+        box-shadow: 5px 6px 20px 0 rgba(0, 0, 0, 0.4);
+        background-color: #2a024a;
+
+        @include breakpoints(md) {
+          box-shadow: 5px 6px 59px 0 rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+
+  #{$el}__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #{$el}__text {
+    align-self: flex-end;
+    text-align: right;
+    margin-bottom: $sp;
+
+    & > p {
+      font-size: 14px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include breakpoints(md) {
+      align-self: initial;
+      width: span(5 of 7) - gutter(7);
+      margin-bottom: 0;
+    }
+  }
+
+  #{$el}__media {
+    @include img__responsive;
+    object-fit: cover;
+    min-height: 340px;
+
+    @include breakpoints(md) {
+      min-height: 870px;
+    }
+
+    &-content {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: $sps $sps;
+
+      @include breakpoints(md) {
+        padding: $sp $spxl;
+      }
+    }
+
+    &-overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+    }
+
+    &-category {
+      font-size: 16px;
+      font-family: $headingsfont;
+
+      @include breakpoints(md) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  #{$el}__dots {
+    display: flex;
+
+    #{$main}__dots-item:first-child #{$main}__dots-index,
+    #{$main}__dots-item:last-child #{$main}__dots-index {
+      opacity: 1 !important;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 $spxxs;
+      opacity: 0.3;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &--active {
+        opacity: 1;
+      }
+    }
+
+    &-index {
+      @include heading__stroke;
+      font-family: $headingsfont;
+      font-size: 24px;
+      margin-bottom: $sp;
+      opacity: 0;
+
+      &:after {
+        opacity: 0;
+        width: 100%;
+        bottom: -$spxxxs;
+      }
+    }
+
+    &-title {
+      @include heading__stroke;
+      font-size: 24px;
+      //   font-weight: 700;
+      font-family: $headingsfont;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      margin-bottom: 0;
+      transform: rotate(180deg);
+      text-transform: uppercase;
+
+      &:after {
+        bottom: initial;
+        right: initial;
+        top: 0;
+        left: 0;
+        width: 14px;
+        height: 2px;
+        transform: rotate(90deg) translateX(-55%) translateY(150%);
+      }
+    }
+  }
+
+  #{$el}__arrows {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: $spxl;
+    transform: translateX(20%);
+
+    @include breakpoints(xsm) {
+      flex-direction: row;
+      align-items: initial;
+      transform: initial;
+      transform: translateX(50%);
+    }
+
+    &:hover {
+      #{$main}__button {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  #{$el}__button {
+    background-color: transparent;
+    border: none;
+    color: $lightcolor;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+    & > .icon {
+      height: 24px;
+      width: 24px;
+    }
+
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+
+  #{$el}__pattern {
+    position: absolute;
+    z-index: -1;
+    bottom: 10%;
+    left: -20%;
+    width: 160px;
+    height: 160px;
+    transform: translateY(90%);
+
+    @include breakpoints(md) {
+      bottom: 0;
+      left: -5%;
+      width: 340px;
+      height: 340px;
+    }
+  }
+}

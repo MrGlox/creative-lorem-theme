@@ -1,0 +1,17 @@
+.page-template-page-about {
+  .intro {
+    min-height: 70vh;
+    padding: 120px 0 0;
+
+    .intro__main {
+      @include breakpoints(md) {
+        width: span(7);
+        padding-right: gutter() * 1.5;
+      }
+    }
+
+    .intro__gradient {
+      min-height: 35vh;
+    }
+  }
+}

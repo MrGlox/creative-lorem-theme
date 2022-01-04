@@ -1,0 +1,212 @@
+/**
+ * BUTTON
+ */
+
+// .wp-block-button {
+//   &__link {
+//     font-size: $btn-font-size;
+//     line-height: $btn-line-height;
+//     padding-bottom: $btn-padding-y;
+//     padding-left: $btn-padding-x;
+//     padding-right: $btn-padding-x;
+//     padding-top: $btn-padding-y;
+
+//     &:hover {
+//       text-decoration: none;
+//     }
+//   }
+
+//   &.is-style-outline {
+//     .wp-block-button__link {
+//       @include button-outline-variant(
+//         map-get($theme-colors, 'primary'),
+//         map-get($theme-colors, 'light')
+//       );
+//     }
+//   }
+
+//   &.is-style-solid {
+//     .wp-block-button__link {
+//       @include button-variant(
+//         map-get($theme-colors, 'primary'),
+//         map-get($theme-colors, 'light')
+//       );
+//     }
+//   }
+// }
+
+/**
+ * WordPress Generated Classes
+ * @see http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+ */
+
+/** Media alignment */
+// .alignnone {
+//   margin-left: 0;
+//   margin-right: 0;
+//   max-width: 100%;
+//   height: auto;
+// }
+
+// .alignleft {
+//   @include align;
+// }
+
+// .alignright {
+//   @include align(right);
+// }
+
+// .aligncenter {
+//   clear: both;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+// .alignleft,
+// .alignright,
+// .aligncenter {
+//   margin-bottom: $sp;
+// }
+
+// .alignwide {
+//   @include row--fullwidth;
+
+//   max-width: container();
+// }
+
+// .alignfull {
+//   @include row--fullwidth;
+
+//   max-width: 100vw;
+// }
+
+// @include breakpoints(sm) {
+//   .alignleft {
+//     float: left;
+//     margin-right: ($spxs);
+//   }
+
+//   .alignright {
+//     float: right;
+//     margin-left: ($spxs);
+//   }
+// }
+
+// /** Captions */
+// .wp-caption {
+//   margin-bottom: $sp;
+//   padding: 5px 0;
+//   text-align: center;
+//   max-width: 100% !important;
+// }
+
+// .wp-caption img,
+// .wp-smiley {
+//   margin: 0;
+// }
+
+// .wp-caption-text {
+//   font-size: 11px;
+//   margin: 5px 5px 0;
+// }
+
+// /** Text meant only for screen readers */
+// .screen-reader-text {
+//   position: absolute;
+//   width: 1px;
+//   height: 1px;
+//   padding: 0;
+//   margin: -1px;
+//   overflow: hidden;
+//   clip: rect(0, 0, 0, 0);
+//   border: 0;
+
+//   &:active,
+//   &:focus {
+//     position: static;
+//     width: auto;
+//     height: auto;
+//     margin: 0;
+//     overflow: visible;
+//     clip: auto;
+//   }
+// }
+
+// .wysiwyg {
+//   @include clearfix;
+
+//   * {
+//     margin-bottom: $sp;
+
+//     &:last-child {
+//       margin-bottom: 0;
+//     }
+//   }
+
+//   a {
+//     text-decoration: underline;
+
+//     @include hover {
+//       text-decoration: none;
+//     }
+//   }
+
+//   ul {
+//     list-style: disc inside none;
+//     margin: 0 0 $sp;
+
+//     li {
+//       margin: 0 0 $spxs;
+//     }
+//   }
+
+//   ol {
+//     list-style: decimal inside none;
+//     margin: 0 0 $sp;
+
+//     li {
+//       margin: 0 0 $spxs;
+//     }
+//   }
+
+//   img {
+//     @include img__responsive;
+//   }
+
+//   .alignright,
+//   .alignleft {
+//     max-width: 50%;
+
+//     @include breakpoints(sm) {
+//       max-width: 100%;
+//     }
+//   }
+// }
+
+// .wp-block-columns {
+//   @include container;
+
+//   margin-bottom: $spxxxl;
+
+//   & > .wp-block-column {
+//     .entry {
+//       margin-bottom: 0 !important;
+//       padding-right: gutter(6);
+
+//       & > .container {
+//         padding: 0;
+//       }
+
+//       .entry__main {
+//         margin-bottom: 0 !important;
+//       }
+
+//       .entry__text {
+//         width: 100%;
+//         padding: 0;
+//         margin: 0;
+//       }
+//     }
+//   }
+// }

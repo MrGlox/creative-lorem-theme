@@ -1,0 +1,41 @@
+.page-template-page-skill {
+  .intro {
+    &__main {
+      width: 100%;
+      padding-right: 0;
+    }
+
+    &__text {
+      @include breakpoints(md) {
+        width: span(7) - gutter(7);
+      }
+    }
+
+    &__gradient {
+      top: 0;
+      left: 50%;
+      width: calc(50vw - 24px);
+      height: 100%;
+      min-height: 50vh;
+    }
+
+    &__aside {
+      @include breakpoints(md) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .main {
+    > .section--entry {
+      @include breakpoints(md) {
+        margin-top: -250px;
+      }
+
+      & + .section--entry {
+        min-height: 50vh;
+        margin-top: 0;
+      }
+    }
+  }
+}

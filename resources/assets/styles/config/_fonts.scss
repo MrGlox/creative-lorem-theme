@@ -1,0 +1,59 @@
+/**
+ * Font Family
+ */
+$sans-serif: Helvetica, Arial, sans-serif;
+$serif: Times, Georgia, serif;
+
+$mainfont: 'Montserrat', $sans-serif;
+$headingsfont: 'Viga', $serif;
+
+/**
+ * Font Size
+ */
+$fszxxs: 10px;
+$fszxs: 12px;
+$fszs: 14px;
+$fsz: 16px;
+$fszl: 18px;
+$fszxl: 20px;
+$fszxxl: 24px;
+
+$hfsz: 32px;
+
+/**
+ * Line Height
+ */
+$lh: 1.6;
+$hlh: 1.2;
+
+// Montserrat
+@include declare-font-face(
+  'Montserrat',
+  '#{$fonts}/Montserrat/montserrat-regular-webfont',
+  400
+); //regularx400
+
+@include declare-font-face(
+  'Montserrat',
+  '#{$fonts}/Montserrat/montserrat-medium-webfont',
+  500
+); //mediumx500
+
+@include declare-font-face(
+  'Montserrat',
+  '#{$fonts}/Montserrat/montserrat-bold-webfont',
+  700
+); //boldx700
+
+@include declare-font-face(
+  'Montserrat',
+  '#{$fonts}/Montserrat/montserrat-black-webfont',
+  900
+); //blackx900
+
+// Viga
+@include declare-font-face(
+  'Viga',
+  '#{$fonts}/Viga/viga-regular-webfont',
+  400
+); //regularx400

@@ -1,0 +1,22 @@
+#breadcrumbs {
+  text-align: left;
+
+  span {
+    span {
+      & > strong,
+      & > a {
+        color: $lightcolor !important;
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+
+      & > a {
+        @include hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

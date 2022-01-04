@@ -1,0 +1,74 @@
+/**
+ * Main colors
+ */
+$primary: #32205b;
+$primary--lighter: #c9d6ff;
+$primary--darker: #1c0228;
+$primary--saturated: #2d397f;
+
+$secondary: #03e2bc;
+$secondary--lighter: #00efeb;
+$secondary--transparent: rgba(#00efeb, 0.5);
+
+$third: #f1e25b;
+
+/**
+ * Light and Dark colors
+ */
+$lightcolor: #fff;
+$darkcolor: $primary--saturated;
+$black: #222a41;
+
+/**
+ * Grey colors
+ */
+$grey: #6d7783;
+$lightgrey: #f3f7ff;
+$mediumgrey: #f8f9fc;
+$highgrey: #9fa3a7;
+$darkgrey: #1e1e1e;
+$bordergrey: #dbdbdb;
+
+/**
+ * Classic text color
+ */
+$textcolor: $grey;
+
+$gradient: linear-gradient(
+  70deg,
+  rgba(30, 121, 195, 1) 0.01%,
+  rgba(3, 226, 188, 1) 100%
+);
+
+$gradient--light: linear-gradient(
+  140deg,
+  rgba(60, 94, 235, 1) 0.01%,
+  rgba(60, 94, 235, 0) 100%
+);
+
+/**
+ * Contextual colors
+ */
+$error: #ee3434;
+$error--light: rgba($error, 0.2);
+
+$warning: #ffa602;
+$warning--light: #ffa602;
+
+$notice: #fc733c;
+$notice--light: rgba($notice, 0.2);
+
+$success: #03d26a;
+$success--light: rgba($success, 0.2);
+$success--third: #0cbf61;
+$success--darker: #00602b;
+
+$info: $primary;
+$info--light: $primary--lighter;
+
+$shadow: 9px 2px 6px rgba(#dbdde2, 0.5);
+$shadow--larger: 0 0 20px rgba(#dbdde2, 0.5);
+
+$shadow--primary: 9px 10px 13px rgba(#000000, 0.1);
+$shadow--heavy: 0 11px 17px rgba(#000000, 0.2);
+// $shadow--darker: 0 2px 4px rgba($black, 0.5);

@@ -1,0 +1,339 @@
+.hero {
+  $el: &;
+
+  #{$el}__content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &:after {
+      @include pseudo__content;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 100vw;
+      height: 1px;
+      background-color: $lightcolor;
+      opacity: 0.11;
+      transform: translateX(-50%);
+    }
+  }
+
+  #{$el}__main {
+    position: relative;
+    z-index: 1;
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0;
+
+    @include breakpoints(sm) {
+      flex-direction: row;
+      align-items: flex-end;
+      padding: 0;
+      padding-left: 80px;
+    }
+
+    @include breakpoints(lg) {
+      padding-left: 0;
+    }
+  }
+
+  #{$el}__heading {
+    display: flex;
+    flex-direction: column;
+    padding-top: $sps;
+
+    @include breakpoints(sm) {
+      width: span(9);
+    }
+
+    @include breakpoints(lg) {
+      width: span(8);
+    }
+  }
+
+  #{$el}__scroll {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(60%);
+
+    color: $lightcolor;
+    width: 40px;
+    height: 40px;
+    border: solid 4px $lightcolor;
+    background-color: transparent;
+    margin-bottom: $spxxs;
+    margin-right: span(1);
+    cursor: pointer;
+
+    transition: background-color 0.7s ease, color 0.7s ease, transform 0.7s ease;
+
+    @include hover {
+      background-color: $lightcolor;
+      color: $primary;
+      transform: translateY(3px);
+    }
+
+    @include breakpoints(sm) {
+      position: static;
+      bottom: initial;
+      right: initial;
+      width: 60px;
+      height: 60px;
+      margin-right: span(1) + gutter();
+      transform: none;
+    }
+
+    & > .icon {
+      height: 8px;
+      width: 14px;
+
+      @include breakpoints(sm) {
+        height: 12px;
+        width: 20px;
+      }
+    }
+  }
+
+  #{$el}__footer {
+    display: flex;
+    margin-top: $sp;
+    padding-bottom: $sp;
+
+    @include breakpoints(sm) {
+      margin-top: $spxxxl;
+      padding-bottom: $spxxl;
+      padding-left: 80px;
+    }
+
+    @include breakpoints(lg) {
+      padding-left: 0;
+    }
+  }
+
+  #{$el}__gradient {
+    @include pseudo__content;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    width: calc(50vw - 24px);
+    height: 100%;
+  }
+
+  #{$el}__background {
+    @include pseudo__content;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    height: 80vw;
+    pointer-events: none;
+  }
+
+  #{$el}__title {
+    @include heading__stroke(-16px);
+    font-size: 20px;
+    line-height: 26px;
+    font-family: $headingsfont;
+    font-weight: 400;
+    color: $lightcolor;
+    text-transform: uppercase;
+
+    &:after {
+      width: 24px;
+      height: 5px;
+    }
+
+    @include breakpoints(sm) {
+      @include heading__stroke(-40px);
+      font-size: 50px;
+      line-height: 54px;
+      margin-bottom: 70px;
+    }
+
+    &--sub {
+      font-size: 11px;
+      line-height: 12px;
+      opacity: 0.4;
+      margin-bottom: 0;
+
+      @include breakpoints(sm) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+
+    .words {
+      overflow: hidden;
+      position: relative;
+      display: inline-flex;
+
+      & > span {
+        position: relative;
+        display: inline-flex;
+        margin-top: 4px;
+        opacity: 0;
+      }
+    }
+  }
+
+  #{$el}__list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+
+    @include breakpoints(md) {
+      flex-direction: row;
+    }
+  }
+
+  #{$el}__item {
+    margin-right: $spl;
+    margin-bottom: $spxxxs;
+  }
+
+  #{$el}__link {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+    color: $lightcolor;
+    font-size: 12px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $lightcolor;
+      transform: scale3d(0, 1, 1);
+      transform-origin: 100% 0;
+      transition: transform 0.3s ease;
+    }
+
+    .glitch {
+      opacity: 0.3;
+    }
+
+    @include breakpoints(sm) {
+      font-size: 18px;
+      min-height: 24px;
+    }
+
+    &:after {
+      @include pseudo__content;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 1px;
+      background-color: $lightcolor;
+      transform-origin: 100% 100%;
+      transition: transform 0.3s ease;
+      transform: scaleX(0);
+    }
+
+    @include hover {
+      &:after {
+        transform: scaleX(1);
+        transform-origin: 0 0;
+      }
+    }
+  }
+
+  #{$el}__blob-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: calc(100% + #{gutter()});
+    margin: 0 - gutter() / 2;
+
+    @include breakpoints(md) {
+      justify-content: space-between;
+    }
+  }
+
+  #{$el}__blob-item {
+    width: span(3) - gutter() / 2;
+    min-width: 260px;
+    margin: $spxs gutter() / 3;
+
+    @include breakpoints(md) {
+      margin: $spxxs gutter() / 3;
+    }
+
+    &-content {
+      position: relative;
+
+      @include breakpoints(sm) {
+        margin-bottom: $spl;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+
+    &-link {
+      font-size: 20px;
+      position: absolute;
+      line-height: 1.2;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) translateY(-50%);
+      text-align: center;
+      font-family: $headingsfont;
+      color: white;
+      cursor: pointer;
+
+      @include breakpoints(sm) {
+        font-size: 54px;
+      }
+    }
+
+    &-label {
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    &-blob {
+      position: absolute;
+      z-index: -1;
+      top: 55%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      transform: translateX(-50%) translateY(100%);
+
+      @include breakpoints(sm) {
+        top: 50%;
+        left: 50%;
+        width: 120px;
+        height: 120px;
+        transform: translateX(-50%);
+      }
+
+      @include breakpoints(md) {
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+  }
+}

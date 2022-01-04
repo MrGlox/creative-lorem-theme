@@ -1,0 +1,85 @@
+.page-template-page-contact {
+  .content {
+    overflow-x: visible !important;
+  }
+
+  .section--contact {
+    overflow: visible !important;
+  }
+
+  .contact {
+    padding: 260px 0 0;
+
+    &__main {
+      padding-top: 0;
+      width: span(5);
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    &__list {
+      margin-top: 120px;
+    }
+
+    &__form {
+      position: relative;
+      width: span(6);
+
+      &:after {
+        @include pseudo__content;
+        position: absolute;
+        z-index: -1;
+        top: -$spxxxl;
+        left: -#{span(1 of 6)};
+        width: 55vw;
+        height: 140%;
+        min-height: 400px;
+        backdrop-filter: blur(30px);
+        border-radius: 8px;
+      }
+    }
+
+    &__breadcrumb {
+      font-family: $headingsfont;
+      font-weight: 400;
+      color: $lightcolor;
+      text-transform: uppercase;
+      font-size: 11px;
+      line-height: 12px;
+      opacity: 0.4;
+      margin-top: 0;
+      margin-bottom: $spxs;
+      width: 100%;
+
+      @include breakpoints(sm) {
+        order: initial;
+        margin-top: $sp;
+        font-size: 24px;
+        line-height: 24px;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &__background {
+      position: absolute;
+      z-index: -1;
+      top: 75%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 55vw;
+      max-width: 760px;
+      opacity: 0.5;
+    }
+  }
+}

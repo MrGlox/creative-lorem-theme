@@ -1,0 +1,144 @@
+.advantages {
+    $el: &;
+    $main: '.advantages';
+  
+    & > .container {
+      display: flex;
+    }
+  
+    #{$el}__container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    #{$el}__header {
+      justify-self: stretch;
+      margin-bottom: $spl;
+  
+      @include breakpoints(md) {
+        margin-bottom: $spxxxl;
+        padding-right: span(1);
+      }
+    }
+  
+    #{$el}__title {
+      @include heading__stroke(-12px);
+      font-size: 20px;
+      margin-bottom: 0;
+  
+      @include breakpoints(xsm) {
+        @include heading__stroke;
+        font-size: 44px;
+        margin-bottom: 0;
+      }
+  
+      &--lower {
+        margin-bottom: 0;
+        font-size: 12px;
+        font-weight: 700;
+  
+        &:first-line {
+          text-indent: 24px;
+        }
+  
+        @include breakpoints(xsm) {
+          padding-left: 50px;
+          margin-top: $spxxs;
+          font-size: 16px;
+          font-weight: 900;
+  
+          &:first-line {
+            text-indent: 0;
+          }
+        }
+  
+        &:after {
+          display: none;
+        }
+      }
+    }
+  
+    #{$el}__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: calc(100% + #{gutter()});
+      margin: 0 - gutter() / 2;
+  
+      @include breakpoints(md) {
+        justify-content: space-between;
+      }
+    }
+  
+    #{$el}__item {
+      width: span(3) - gutter() / 2;
+      min-width: 260px;
+      margin: $spxs gutter() / 3;
+  
+      @include breakpoints(md) {
+        margin: $spxxs gutter() / 3;
+      }
+
+      &-content {
+        position: relative;
+        
+        @include breakpoints(sm) {
+            margin-bottom: $spl;
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+      }
+
+      &-data {
+        font-size: 20px;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+        font-family: $headingsfont;
+
+        @include breakpoints(sm) {
+            font-size: 54px;
+        }
+      }
+
+      &-label {
+        font-size: 16px;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: center;
+      }
+  
+      &-blob {
+        position: absolute;
+        z-index: 2;
+        top: 55%;
+        left: 50%;
+        width: 80px;
+        height: 80px;
+        transform: translateX(-50%) translateY(100%);
+
+        @include breakpoints(sm){
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            transform: translateX(-50%);
+        }
+        
+        @include breakpoints(md){
+            transform: translateX(-50%) translateY(-50%);
+        }
+      }
+    }
+  }
+  

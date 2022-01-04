@@ -1,0 +1,37 @@
+.socials {
+  $el: &;
+
+  margin-bottom: $spl;
+
+  #{$el}__title {
+    font-size: $fsz;
+    text-transform: uppercase;
+    margin-bottom: $sp;
+  }
+
+  #{$el}__list {
+    display: flex;
+  }
+
+  #{$el}__item {
+    margin-right: $spxs;
+  }
+
+  #{$el}__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: solid 1px $lightcolor;
+    color: $lightcolor;
+    border-radius: 30px;
+    transition: border 0.7s ease, color 0.3s ease, background-color 0.7s ease;
+
+    @include hover {
+      color: $lightcolor !important;
+      border-color: $secondary !important;
+      background-color: $secondary !important;
+    }
+  }
+}

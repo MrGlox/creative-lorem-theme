@@ -1,0 +1,30 @@
+<svg class="contact__circles" viewBox="0 0 758 758" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox" id="contact-b">
+      <feGaussianBlur in="SourceGraphic"/>
+    </filter>
+    <filter x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox" id="contact-d">
+      <feGaussianBlur in="SourceGraphic"/>
+    </filter>
+    <filter x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox" id="contact-e">
+      <feGaussianBlur in="SourceGraphic"/>
+    </filter>
+    <filter x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox" id="contact-f">
+      <feGaussianBlur in="SourceGraphic"/>
+    </filter>
+    <linearGradient x1="77.637%" y1="1.785%" x2="17.378%" y2="87.702%" id="contact-a">
+      <stop stop-color="#868BEA" offset="0%"/>
+      <stop stop-color="#FF95F0" offset="100%"/>
+    </linearGradient>
+    <linearGradient x1="77.637%" y1="1.785%" x2="17.378%" y2="87.702%" id="contact-c">
+      <stop stop-color="#FF95F0" offset="0%"/>
+      <stop stop-color="#868BEA" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <circle fill="url(#contact-a)" opacity=".297" filter="url(#contact-b)" cx="379" cy="379" r="379"/>
+    <circle fill="url(#contact-c)" opacity=".403" filter="url(#contact-d)" cx="379" cy="379" r="318"/>
+    <circle fill="url(#contact-c)" opacity=".514" filter="url(#contact-e)" cx="379" cy="379" r="242"/>
+    <circle fill="url(#contact-c)" filter="url(#contact-f)" cx="379" cy="379" r="173"/>
+  </g>
+</svg>

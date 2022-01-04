@@ -1,0 +1,100 @@
+/**
+ * Susy layout
+ * Go to layouts/_default.scss for example
+ */
+
+// debug: (image: show-columns),
+$susy: (
+  'min-width': 0,
+  'columns': susy-repeat(12),
+  'gutters': 30px/80px,
+  'spread': 'wide',
+  'container-spread': 'wider',
+);
+
+/**
+ * Responsive breakpoints
+ */
+// $breakpoints: (xsm: ('min-width': 480px,
+// 		'columns': susy-repeat(12)),
+// 	sm: ('min-width': 768px,
+// 		'columns': susy-repeat(12)),
+// 	md: ('min-width': 1024px,
+// 		'columns': susy-repeat(12)),
+// 	lg: ('min-width': 1280px,
+// 		'columns': susy-repeat(12)),
+// 	xlg: ('min-width': 1440px,
+// 		'columns': susy-repeat(12)));
+
+@mixin container {
+  max-width: 360px;
+  width: 100%;
+  padding: 0 $sps;
+  margin: 0 auto;
+
+  @include breakpoints(xsm) {
+    padding: 0 $sp;
+    max-width: 640px;
+  }
+
+  @include breakpoints(sm) {
+    max-width: 760px;
+  }
+
+  @include breakpoints(md) {
+    max-width: 1120px;
+  }
+
+  &--larger {
+    max-width: 420px;
+
+    @include breakpoints(xsm) {
+      max-width: 720px;
+    }
+
+    @include breakpoints(md) {
+      max-width: 1280px;
+    }
+  }
+}
+
+/**
+* Span mixins
+*/
+@mixin span($span, $config: $susy) {
+  width: span($span, $config);
+
+  @if index($span, 'last') {
+    float: right;
+    // margin-right: 0; if you want an explicit reset
+  } @else {
+    float: left;
+    margin-right: gutter();
+  }
+}
+
+/**
+ * Susy mixins
+ */
+// @mixin susy-at($config) {
+// 	$config: susy-compile($config);
+// 	$global: $susy;
+// 	$susy: map-merge($susy, $config) !global;
+
+// 	@content;
+
+// 	$susy: $global !global;
+// }
+
+// @mixin breakpoints($breakpoint) {
+// 	$config: susy-compile(map-get($map: $breakpoints, $key: $breakpoint));
+// 	$min: map-get($config, 'min-width');
+// 	$min: if($min, '(min-width: #{$min})', null);
+// 	$query: $min;
+
+// 	@media #{$query} {
+// 		@include susy-at($config) {
+// 			@content;
+// 		}
+// 	}
+// }

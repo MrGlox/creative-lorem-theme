@@ -1,0 +1,13 @@
+.brand {
+  $el: &;
+  $main: '.brand';
+
+  position: relative;
+  z-index: 2000;
+
+  #{$el}__logo {
+    min-width: 74px;
+    max-width: 74px;
+    min-height: 74px;
+  }
+}

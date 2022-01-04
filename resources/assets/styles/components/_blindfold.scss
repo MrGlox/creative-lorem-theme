@@ -1,0 +1,93 @@
+.blindfold {
+  $el: &;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100vw;
+  max-height: 0;
+  padding: $spxs;
+  margin-top: -$spxl;
+  background-color: $secondary;
+  transform: translateY(-100%) translateZ(0);
+  overflow: hidden;
+  transition: margin 0.3s ease, transform 0.7s ease-out;
+
+  &--active {
+    margin-top: 0;
+    transform: translateY(0) translateZ(0);
+    min-height: 40px;
+    max-height: 120px;
+  }
+
+  #{$el}__container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+
+  #{$el}__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    color: $darkcolor;
+    width: 100%;
+
+    @include breakpoints(md) {
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      flex-direction: row;
+    }
+  }
+
+  #{$el}__text {
+    font-weight: 500;
+    margin-right: $sps;
+
+    & > p {
+      @include breakpoints(md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  #{$el}__link {
+    color: $darkcolor;
+    font-weight: 600;
+    text-decoration: underline;
+
+    @include hover {
+      text-decoration: none;
+    }
+  }
+
+  #{$el}__close {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: $darkcolor;
+    height: 32px;
+    width: 32px;
+    background-color: rgba($lightcolor, 20%);
+    border: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border-radius: $br;
+
+    @include hover {
+      background-color: rgba($lightcolor, 50%);
+    }
+  }
+
+  #{$el}__icon {
+    width: 15px;
+    height: 15px;
+  }
+}

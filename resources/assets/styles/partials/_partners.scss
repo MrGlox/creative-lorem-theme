@@ -1,0 +1,271 @@
+.partners {
+  $el: &;
+
+  #{$el}__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoints(sm) {
+      padding: 0;
+      padding-left: 80px;
+    }
+
+    @include breakpoints(md) {
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    @include breakpoints(lg) {
+      padding-left: 0;
+    }
+
+    &:after {
+      @include pseudo__content;
+      position: absolute;
+      bottom: 43%;
+      left: 50%;
+      width: 100vw;
+      height: 1px;
+      background-color: $lightcolor;
+      opacity: 0.11;
+      transform: translateX(-50%);
+    }
+  }
+
+  #{$el}__main {
+    order: 1;
+    position: relative;
+    z-index: 1;
+    @include container;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-left: 0;
+    margin-bottom: $sps;
+
+    @include breakpoints(sm) {
+      padding: 0;
+    }
+
+    @include breakpoints(md) {
+      flex-direction: row;
+      padding: 0 span(0.5) 0 0;
+      width: span(8);
+      margin-right: gutter();
+      margin-bottom: $spl;
+    }
+  }
+
+  #{$el}__heading {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #{$el}__footer {
+    order: 4;
+    display: flex;
+  }
+
+  #{$el}__gradient {
+    @include pseudo__content;
+    position: absolute;
+    z-index: -1;
+    top: $sps;
+    right: -20px;
+    width: calc(60vw - 24px);
+    height: 45vh;
+    max-height: 230px;
+
+    @include breakpoints(sm) {
+      max-height: initial;
+      right: -30px;
+    }
+
+    @include breakpoints(md) {
+      top: -$sps;
+      width: calc(50vw - 24px);
+      left: 50%;
+      right: initial;
+    }
+  }
+
+  #{$el}__background {
+    @include pseudo__content;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 60vw;
+    height: 60vw;
+    pointer-events: none;
+  }
+
+  #{$el}__title {
+    font-size: 22px;
+    line-height: 26px;
+    font-family: $headingsfont;
+    font-weight: 400;
+    color: $lightcolor;
+    text-transform: uppercase;
+
+    &:after {
+      width: 24px;
+      height: 5px;
+    }
+
+    @include breakpoints(sm) {
+      font-size: 50px;
+      line-height: 54px;
+    }
+
+    .words {
+      overflow: hidden;
+      position: relative;
+      display: inline-flex;
+
+      & > span {
+        position: relative;
+        display: inline-flex;
+        margin-top: 4px;
+        opacity: 0;
+      }
+    }
+
+    &--sub {
+      order: 0;
+      font-size: 11px;
+      line-height: 12px;
+      opacity: 0.4;
+      margin-bottom: $spxs;
+      width: 100%;
+      transition: opacity 0.3s ease;
+
+      @include breakpoints(sm) {
+        order: initial;
+        margin-top: $sp;
+        font-size: 24px;
+        line-height: 24px;
+      }
+
+      &:after {
+        display: none;
+      }
+
+      @include hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  #{$el}__text {
+    @include breakpoints(md) {
+      padding-right: span(1) + gutter();
+    }
+  }
+
+  #{$el}__list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 -#{gutter() / 2} 0;
+    width: calc(100% + #{gutter()});
+
+    @include breakpoints(sm) {
+      justify-content: space-between;
+    }
+
+    &:hover {
+      #{$el}__link,
+      #{$el}__container {
+        opacity: 0.43;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  #{$el}__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 $sp;
+    padding: 0 $spxs 0;
+
+    max-width: 100px;
+    max-height: 50px;
+
+    &:nth-child(odd) {
+      justify-content: flex-start;
+    }
+
+    &:nth-child(even) {
+      justify-content: flex-end;
+    }
+
+    @include breakpoints(sm) {
+      min-width: 60px;
+
+      max-width: initial;
+      max-height: 70px;
+      margin: 0 0 $spl;
+
+      &:nth-child(odd),
+      &:nth-child(even) {
+        justify-content: center;
+      }
+
+      &:nth-child(0n + 1),
+      &:nth-child(4n + 1) {
+        justify-content: flex-start;
+      }
+
+      &:nth-child(4n) {
+        justify-content: flex-end;
+      }
+    }
+
+    @include breakpoints(md) {
+      min-width: 240px;
+      max-height: initial;
+      padding: 0 gutter() / 2 $spxl;
+      margin: 0;
+    }
+  }
+
+  #{$el}__link,
+  #{$el}__container {
+    color: $lightcolor;
+    font-family: $headingsfont;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+    transform-origin: center right;
+    cursor: pointer;
+
+    & > img {
+      @include img__responsive(100%);
+      object-fit: contain;
+      max-height: 50px;
+      max-width: 100%;
+      width: auto;
+
+      @include breakpoints(sm) {
+        max-height: 70px;
+        max-width: 220px;
+      }
+
+      @include breakpoints(md) {
+        max-height: initial;
+        max-width: initial;
+      }
+    }
+  }
+
+  #{$el}__container {
+    cursor: initial;
+  }
+}

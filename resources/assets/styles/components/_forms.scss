@@ -1,0 +1,240 @@
+$text-inputs-list: 'input[type="color"]', 'input[type="date"]',
+  'input[type="datetime"]', 'input[type="datetime-local"]',
+  'input[type="email"]', 'input[type="month"]', 'input[type="number"]',
+  'input[type="password"]', 'input[type="search"]', 'input[type="tel"]',
+  'input[type="text"]', 'input[type="time"]', 'input[type="url"]',
+  'input[type="week"]', 'input:not([type])', 'textarea';
+
+#{assign-inputs($text-inputs-list)} {
+  box-sizing: border-box;
+  line-height: 1;
+  width: 100%;
+  padding: 14px $spxs;
+  font-family: $mainfont;
+  color: $lightcolor;
+  font-weight: 700;
+  border-radius: 0; //reset border radius for ios
+  transition: border-color 0.5s ease;
+  appearance: none;
+  resize: vertical;
+
+  border-radius: 4px;
+  border: 1px solid $lightcolor;
+  background-color: rgba($lightcolor, 0.07);
+  transition: border 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    border-color: $secondary--lighter;
+    background-color: rgba($secondary--lighter, 0.25);
+  }
+
+  &:focus {
+    color: $lightcolor;
+    border-color: $secondary--lighter;
+    background-color: rgba($secondary--lighter, 0.25);
+  }
+
+  &::placeholder {
+    font-style: italic;
+    font-weight: 400;
+    color: $lightcolor;
+  }
+}
+
+// Label
+label {
+  margin-bottom: $spxxxs;
+  font-weight: 700;
+}
+
+textarea {
+  min-height: 160px;
+}
+
+// Custom select
+select {
+  @include select--custom;
+}
+
+// Checkbox + Radio
+.checkbox--custom {
+  @include checkbox--custom($primary);
+}
+
+.radio--custom {
+  @include checkbox--custom($primary);
+  @include radio--custom();
+}
+
+input[type='submit'] {
+  @include button;
+  min-height: 54px;
+  min-width: 170px;
+}
+
+.fieldset {
+  display: flex;
+
+  & > :nth-child(odd) {
+    margin-right: 0;
+  }
+
+  & > :nth-child(even) {
+    margin-left: 0;
+  }
+
+  & > p:first-child {
+    font-style: italic;
+    font-size: 12px;
+    text-align: right;
+    padding-right: $sps;
+
+    a {
+      color: $lightcolor;
+      text-decoration: underline;
+
+      @include hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% + #{$sp * 2});
+  padding: 0 $sp;
+  margin: 0 #{-$sp} $sp;
+}
+
+.wpcf7 {
+  .ajax-loader {
+    position: relative;
+    background-image: none !important;
+    width: 100% !important;
+
+    &:after {
+      content: 'Envoi en cours...' !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .wpcf7-not-valid {
+    border-color: $error;
+  }
+
+  .wpcf7-not-valid-tip {
+    color: $error;
+    font-weight: bold;
+    margin-top: $spxxxs;
+  }
+}
+
+.wpcf7-form {
+  .wpcf7-radio {
+    .wpcf7-list-item {
+      margin-left: 0;
+      margin-right: $sps;
+    }
+
+    label {
+      position: relative;
+      padding-left: $spxxs;
+      font-style: italic;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    input[type='radio'] {
+      position: relative;
+      visibility: hidden;
+    }
+
+    input[type='radio'] + span:before {
+      display: block;
+      position: absolute;
+      content: '';
+      border-radius: 100%;
+      height: 18px;
+      width: 18px;
+      top: 0px;
+      border: 1px solid $lightcolor;
+      background-color: rgba($lightcolor, 0.07);
+    }
+
+    input[type='radio'] + span:after {
+      display: block;
+      position: absolute;
+      content: '';
+      border-radius: 100%;
+      height: 10px;
+      width: 10px;
+      top: 4px;
+      left: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    input[type='radio']:checked + span {
+      font-style: normal !important;
+      font-weight: bold;
+
+      &:before {
+        background-color: rgba($secondary--lighter, 0.25);
+        border-color: $secondary--lighter;
+      }
+
+      &:after {
+        background: $secondary--lighter;
+        opacity: 1;
+      }
+    }
+  }
+
+  .wpcf7-checkbox label {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .wpcf7-checkbox input[type='checkbox'] {
+    position: relative;
+    visibility: hidden;
+  }
+
+  .wpcf7-checkbox input[type='checkbox'] + span:before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 5px;
+    height: 18px;
+    width: 18px;
+    top: 0px;
+    border: 2px solid $secondary--lighter;
+  }
+
+  .wpcf7-checkbox input[type='checkbox'] + span:after {
+    display: block;
+    position: absolute;
+    content: '\2713';
+    border-radius: 100%;
+    height: 10px;
+    width: 10px;
+    top: 2px;
+    left: 5px;
+    visibility: hidden;
+    font-size: 16px;
+  }
+
+  .wpcf7-checkbox input[type='checkbox']:checked + span:before {
+    background: transparent;
+    /*     border-color: red; */
+  }
+
+  .wpcf7-checkbox input[type='checkbox']:checked + span:after {
+    /*    background: #222; */
+    visibility: visible;
+  }
+}
